@@ -6,14 +6,32 @@ import java.util.NoSuchElementException;
 
 public class CarrilBiciManager {
 
+    /**
+     * Longitud de los tramos. 
+    */
     private final Map<String, Double> tramos; // nombre del tramo -> longitud en km
+    
+    /**
+     * Estado de los tramos. 
+     */
     private final Map<String, String> estadoTramos; // nombre del tramo -> estado
 
+    /**
+     * Inicializamos las variables.
+     */
     public CarrilBiciManager() {
         this.tramos = new HashMap<>();
         this.estadoTramos = new HashMap<>();
     }
 
+    /**
+     * El método añadirTramo funciona para que el usuario nos proporcione el nombre del nuevo tramo, en caso de que no fuera válido por no haber 
+     * escrito nada, se devolverá por teclado que el nombre no puede estar vacío ni ser menor o igual que cero. En caso de que no lo estuviera 
+     * el tramo se añadiría sin problema.
+     *
+     * @param String nombre
+     * @param double longitud
+     */
     public void añadirTramo(String nombre, double longitud) {
         if (nombre == null || nombre.isBlank()) {
             throw new IllegalArgumentException("El nombre del tramo no puede estar vacío");
@@ -25,6 +43,12 @@ public class CarrilBiciManager {
         estadoTramos.put(nombre, "En servicio");
     }
 
+    /**
+     * Actualizar estado.
+     *
+     * @param String nombre
+     * @param String nuevoEstado
+     */
     public void actualizarEstado(String nombre, String nuevoEstado) {
         if (!tramos.containsKey(nombre)) {
             throw new NoSuchElementException("El tramo indicado no existe: " + nombre);
@@ -32,10 +56,22 @@ public class CarrilBiciManager {
         estadoTramos.put(nombre, nuevoEstado);
     }
     
+    /**
+     * Cambiar estado.
+     *
+     * @param String nombre
+     * @param String estado
+     */
     public void cambiarEstado(String nombre, String estado) {
         actualizarEstado(nombre, estado);
     }
 
+    /**
+     * Consultar estado.
+     *
+     * @param String nombre
+     * @return nombre
+     */
     public String consultarEstado(String nombre) {
         if (!estadoTramos.containsKey(nombre)) {
             throw new NoSuchElementException("El tramo indicado no existe");
@@ -43,14 +79,29 @@ public class CarrilBiciManager {
         return estadoTramos.get(nombre);
     }
 
+    /**
+     * Longitud total.
+     *
+     * @return longitud total
+     */
     public double longitudTotal() {
         return tramos.values().stream().mapToDouble(Double::doubleValue).sum();
     }
 
+    /**
+     * Obtener tramos.
+     *
+     * @return tramos
+     */
     public Map<String, Double> obtenerTramos() {
         return Collections.unmodifiableMap(tramos);
     }
 
+    /**
+     * Generar informe.
+     *
+     * @return string
+     */
     public String generarInforme() {
         StringBuilder sb = new StringBuilder("INFORME DE CARRILES BICI - Bahía de Cádiz\n");
         sb.append("===========================================\n");
