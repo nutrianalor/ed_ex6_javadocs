@@ -67,7 +67,7 @@ public class CarrilBiciManager {
     }
 
     /**
-     * Consultar estado.
+     * Este método consulta el estado del tramo para verificar si existe o no.
      *
      * @param String nombre
      * @return nombre
@@ -80,7 +80,7 @@ public class CarrilBiciManager {
     }
 
     /**
-     * Longitud total.
+     * Este método calcula la longitud total.
      *
      * @return longitud total
      */
@@ -89,7 +89,7 @@ public class CarrilBiciManager {
     }
 
     /**
-     * Obtener tramos.
+     * Este método devuelve todos los tramos que se han guardado.
      *
      * @return tramos
      */
@@ -98,7 +98,7 @@ public class CarrilBiciManager {
     }
 
     /**
-     * Generar informe.
+     * Este método genera un informe sobre los carriles bici.
      *
      * @return string
      */
