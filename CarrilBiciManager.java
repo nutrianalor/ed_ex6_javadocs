@@ -44,7 +44,7 @@ public class CarrilBiciManager {
     }
 
     /**
-     * Actualizar estado.
+     * El método actualizarEstado sirve para sobreescribir un estado por otro nuevo.
      *
      * @param String nombre
      * @param String nuevoEstado
@@ -57,7 +57,7 @@ public class CarrilBiciManager {
     }
     
     /**
-     * Cambiar estado.
+     * Este método llama al método actualizarEstado.
      *
      * @param String nombre
      * @param String estado
